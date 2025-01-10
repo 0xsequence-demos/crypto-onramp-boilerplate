@@ -2,7 +2,7 @@ import { Select } from "@0xsequence/design-system";
 import { Chain } from "viem";
 import { useSwitchChain } from "wagmi";
 
-const ChainSwitcher = (props: { chain: Chain }) => {
+const SwitchNetwork = (props: { chain: Chain }) => {
   const { chain } = props;
   const { chains, switchChainAsync } = useSwitchChain();
   const onSwitchChain = async (chainId: string) => {
@@ -23,4 +23,4 @@ const ChainSwitcher = (props: { chain: Chain }) => {
   );
 };
 
-export default ChainSwitcher;
+export default SwitchNetwork;

@@ -1,16 +1,19 @@
 import { useOpenConnectModal } from "@0xsequence/kit";
 
-const Connector = () => {
+const NotConnected = () => {
   const { setOpenConnectModal } = useOpenConnectModal();
+  const onClickConnect = () => {
+    setOpenConnectModal(true);
+  };
 
   return (
     <>
       <p>Not connected</p>
       <div className="card">
-        <button onClick={() => setOpenConnectModal(true)}>Connect</button>
+        <button onClick={onClickConnect}>Connect</button>
       </div>
     </>
   );
 };
 
-export default Connector;
+export default NotConnected;

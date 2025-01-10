@@ -1,8 +1,8 @@
 import { Box } from "@0xsequence/design-system";
 import { Address, Chain } from "viem";
-import ActiveChain from "./ActiveChain";
+import ActiveNetwork from "./ActiveNetwork";
 import NativeBalance from "./NativeBalance";
-import ChainSwitcher from "./ChainSwitcher";
+import SwitchNetwork from "./SwitchNetwork";
 
 const ChainInfo = (props: { chain: Chain; address: Address }) => {
   const { chain, address } = props;
@@ -15,8 +15,8 @@ const ChainInfo = (props: { chain: Chain; address: Address }) => {
         justifyContent="space-between"
         alignItems="flex-end"
       >
-        <ActiveChain chain={chain} />
-        <ChainSwitcher chain={chain} />
+        <ActiveNetwork chain={chain} />
+        <SwitchNetwork chain={chain} />
       </Box>
       <NativeBalance chain={chain} address={address} />
     </Box>

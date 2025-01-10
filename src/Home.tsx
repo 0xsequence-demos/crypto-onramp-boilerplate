@@ -1,9 +1,9 @@
 import { useAccount } from "wagmi";
 
 import "./Home.css";
-import Connector from "./components/Connector";
-import MainConnected from "./components/MainConnected";
 import { Footer } from "./components/Footer";
+import Connected from "./components/blockchain/Connected";
+import NotConnected from "./components/blockchain/NotConnected";
 
 const Home = () => {
   const { isConnected } = useAccount();
@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       <h1>Sequence Crypto On-ramp Boilerplate</h1>
       <h2 className="homepage__marginBtNormal">Embedded Wallet</h2>
-      {isConnected ? <MainConnected /> : <Connector />}
+      {isConnected ? <Connected /> : <NotConnected />}
       <Footer />
     </div>
   );
