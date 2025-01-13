@@ -4,6 +4,7 @@ import TestSwap from "./TestSwap";
 
 const Tests = (props: { chainId: number }) => {
   const { chainId } = props;
+  console.log(chainId);
 
   return (
     <Box display="flex" flexDirection="column" gap="4">

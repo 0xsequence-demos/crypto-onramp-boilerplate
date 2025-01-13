@@ -14,7 +14,7 @@ const Connected = () => {
   if (!chain) {
     return <Missing>a chain</Missing>;
   }
-  
+
   if (!chainId) {
     return <Missing>a chainId</Missing>;
   }
