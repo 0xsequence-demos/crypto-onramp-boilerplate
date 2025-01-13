@@ -17,7 +17,7 @@ const TestOnRamp = () => {
     });
   };
 
-  return <button onClick={onClick}>Add Funds</button>
+  return <button onClick={onClick}>Add Funds</button>;
 };
 
 export default TestOnRamp;
