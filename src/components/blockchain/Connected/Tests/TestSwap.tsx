@@ -1,13 +1,14 @@
 import { useSwapModal, type SwapModalSettings } from "@0xsequence/kit-checkout";
 import { ethers } from "ethers";
+import { tokenAddress } from "./swapTokenAddress";
 
 const TestSwap = () => {
   const { openSwapModal } = useSwapModal();
 
   const onClick = () => {
-    const chainId = 42161;
-    const currencyAddress = "0xaf88d065e77c8cC2239327C5EDb3A432268e5831";
-    const currencyAmount = "20000";
+    const chainId = 137;
+    const currencyAddress = tokenAddress;
+    const currencyAmount = "2000";
 
     const contractAbiInterface = new ethers.Interface(["function demo()"]); // Optionally, replace with your contract's abi interface
 
@@ -31,7 +32,7 @@ const TestSwap = () => {
         },
       ],
       title: "Swap and Pay",
-      description: "Select a token in your wallet to swap to 0.2 USDC.",
+      description: "Select a token in your wallet to swap to 0.02 USDC.",
     };
 
     openSwapModal(swapModalSettings);
