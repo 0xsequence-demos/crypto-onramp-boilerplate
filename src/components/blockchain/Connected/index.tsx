@@ -4,9 +4,17 @@ import ChainInfo from "./ChainInfo";
 import Disconnect from "./Disconnect";
 import Tests from "./Tests";
 import { Missing } from "../../Missing";
+import { useState } from "react";
 
 const Connected = () => {
   const { address, chain, chainId } = useAccount();
+  const [balance, setBalance] = useState("0");
+
+  const onBalanceChange = (newBalance: string) => {
+    console.log("New balance received:", newBalance);
+    setBalance(newBalance);
+  };
+
   if (!address) {
     return <Missing>an address</Missing>;
   }
@@ -25,8 +33,14 @@ const Connected = () => {
         Connected with address: {address}
       </Text>
       <Disconnect />
-      {chain && <ChainInfo chain={chain} address={address!} />}
-      <Tests chainId={chainId!} />
+      {chain && (
+        <ChainInfo
+          chain={chain}
+          address={address!}
+          onBalanceChange={onBalanceChange}
+        />
+      )}
+      <Tests chainId={chainId!} balance={balance} />
     </>
   );
 };
