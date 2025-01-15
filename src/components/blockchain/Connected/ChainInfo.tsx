@@ -4,8 +4,12 @@ import ActiveNetwork from "./ActiveNetwork";
 import NativeBalance from "./NativeBalance";
 import UsdcBalance from "./UsdcBalance";
 
-const ChainInfo = (props: { chain: Chain; address: Address }) => {
-  const { chain, address } = props;
+const ChainInfo = (props: {
+  chain: Chain;
+  address: Address;
+  onBalanceChange: (newBalance: string) => void;
+}) => {
+  const { chain, address, onBalanceChange } = props;
 
   return (
     <Box marginBottom="8">
@@ -18,7 +22,11 @@ const ChainInfo = (props: { chain: Chain; address: Address }) => {
         <ActiveNetwork chain={chain} />
       </Box>
       <NativeBalance chain={chain} address={address} />
-      <UsdcBalance chain={chain} address={address} />
+      <UsdcBalance
+        chain={chain}
+        address={address}
+        onBalanceChange={onBalanceChange}
+      />
     </Box>
   );
 };

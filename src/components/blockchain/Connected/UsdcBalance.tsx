@@ -12,10 +12,10 @@ const projectAccessKey =
 const UsdcBalance = (props: {
   chain: Chain;
   address: Address;
-  reload?: () => void;
+  onBalanceChange: (newBalance: string) => void;
 }) => {
-  const { chain, address } = props;
-  const [balance, setBalance] = useState<string | undefined>();
+  const { chain, address, onBalanceChange } = props;
+  const [balance, setBalance] = useState<string | undefined>("0");
   const [contractInfo, setContractInfo] = useState<ContractInfo | undefined>(
     undefined,
   );
@@ -44,6 +44,7 @@ const UsdcBalance = (props: {
       if (tokenBalances?.balances?.length > 0) {
         const [firstBalance] = tokenBalances.balances;
         setBalance(firstBalance.balance);
+        onBalanceChange(firstBalance.balance);
 
         if (firstBalance.contractInfo) {
           setContractInfo(firstBalance.contractInfo);

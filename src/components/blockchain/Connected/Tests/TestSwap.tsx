@@ -1,9 +1,27 @@
 import { useSwapModal, type SwapModalSettings } from "@0xsequence/kit-checkout";
 import { ethers } from "ethers";
 import { tokenAddress } from "./swapTokenAddress";
+import { useEffect, useRef } from "react";
 
-const TestSwap = () => {
+const TestSwap = (props: { balance: string }) => {
+  const { balance } = props;
+  const previousBalance = useRef<string | undefined>(undefined);
   const { openSwapModal } = useSwapModal();
+
+  useEffect(() => {
+    if (balance !== "0" && balance !== previousBalance.current) {
+      console.log("Balance updated:", {
+        previous: previousBalance.current,
+        balance: balance,
+      });
+
+      if (previousBalance.current && previousBalance.current !== "0") {
+        onClick();
+      }
+
+      previousBalance.current = balance;
+    }
+  }, [balance]);
 
   const onClick = () => {
     const chainId = 137;
