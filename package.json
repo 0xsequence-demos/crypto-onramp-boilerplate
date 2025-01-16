@@ -15,8 +15,8 @@
     "0xsequence": "2.2.7",
     "@0xsequence/design-system": "^1.9.0",
     "@0xsequence/indexer": "^2.2.7",
-    "@0xsequence/kit": "^4.5.7",
-    "@0xsequence/kit-checkout": "^4.5.7",
+    "@0xsequence/kit": "^4.5.8",
+    "@0xsequence/kit-checkout": "^4.5.8",
     "@0xsequence/network": "^2.2.7",
     "@tanstack/react-query": "^5.61.5",
     "ethers": "6.13.4",
@@ -42,10 +42,5 @@
     "typescript-eslint": "^8.16.0",
     "vite": "^5.4.8"
   },
-  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
-  "pnpm": {
-    "patchedDependencies": {
-      "@0xsequence/kit@4.5.7": "patches/@0xsequence__kit@4.5.7.patch"
-    }
-  }
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
