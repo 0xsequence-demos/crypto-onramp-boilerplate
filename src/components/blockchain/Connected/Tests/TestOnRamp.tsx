@@ -8,11 +8,9 @@ const TestOnRamp = () => {
   const onClick = () => {
     toggleAddFunds({
       walletAddress: address!,
-      defaultCryptoCurrency: "USDC",
-      cryptoCurrencyList: "USDC",
-      fiatCurrency: "USD",
-      networks: "arbitrum",
-      // cryptoCurrencyList: "USDT,BTC,USDC",
+      defaultCryptoCurrency: "POL",
+      cryptoCurrencyList: "POL",
+      networks: "polygon",
       onClose: () => console.log("User closed the popup"),
     });
   };
