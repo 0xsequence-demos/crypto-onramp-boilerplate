@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@0xsequence/kit@4.5.7':
+    hash: zvglzyt4hn2hnhpr4kuoyheuxe
+    path: patches/@0xsequence__kit@4.5.7.patch
+
 importers:
 
   .:
@@ -19,10 +24,10 @@ importers:
         version: 2.2.7
       '@0xsequence/kit':
         specifier: ^4.5.7
-        version: 4.5.7(0xsequence@2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.12)(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))(wagmi@2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)))
+        version: 4.5.7(patch_hash=zvglzyt4hn2hnhpr4kuoyheuxe)(0xsequence@2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.12)(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))(wagmi@2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)))
       '@0xsequence/kit-checkout':
         specifier: ^4.5.7
-        version: 4.5.7(ehrdbwmot7r6deuzm5ai6hh2hu)
+        version: 4.5.7(2hejvetn7exlizevd745qmj5gq)
       '@0xsequence/network':
         specifier: ^2.2.7
         version: 2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -3973,13 +3978,13 @@ snapshots:
 
   '@0xsequence/indexer@2.2.7': {}
 
-  '@0xsequence/kit-checkout@4.5.7(ehrdbwmot7r6deuzm5ai6hh2hu)':
+  '@0xsequence/kit-checkout@4.5.7(2hejvetn7exlizevd745qmj5gq)':
     dependencies:
       0xsequence: 2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/api': 2.2.7
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@0xsequence/indexer': 2.2.7
-      '@0xsequence/kit': 4.5.7(0xsequence@2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.12)(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))(wagmi@2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)))
+      '@0xsequence/kit': 4.5.7(patch_hash=zvglzyt4hn2hnhpr4kuoyheuxe)(0xsequence@2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.12)(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))(wagmi@2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)))
       '@0xsequence/marketplace': 2.2.5
       '@0xsequence/metadata': 2.2.7
       '@0xsequence/network': 2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -3996,7 +4001,7 @@ snapshots:
       viem: 2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)
       wagmi: 2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))
 
-  '@0xsequence/kit@4.5.7(0xsequence@2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.12)(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))(wagmi@2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)))':
+  '@0xsequence/kit@4.5.7(patch_hash=zvglzyt4hn2hnhpr4kuoyheuxe)(0xsequence@2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react-dom@18.3.1)(@types/react@18.3.12)(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))(wagmi@2.14.7(@tanstack/query-core@5.61.5)(@tanstack/react-query@5.61.5(react@18.3.1))(@types/react@18.3.12)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.2)(utf-8-validate@5.0.10)(viem@2.22.6(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)))':
     dependencies:
       0xsequence: 2.2.7(ethers@6.13.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/api': 2.2.5
