@@ -4,16 +4,27 @@ import ChainInfo from "./ChainInfo";
 import Disconnect from "./Disconnect";
 import Tests from "./Tests";
 import { Missing } from "../../Missing";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Connected = () => {
   const { address, chain, chainId } = useAccount();
   const [balance, setBalance] = useState("0");
+  const previousBalance = useRef<string | undefined>(undefined);
 
   const onBalanceChange = (newBalance: string) => {
-    console.log("New balance received:", newBalance);
     setBalance(newBalance);
   };
+
+  useEffect(() => {
+    if (balance !== "0" && balance !== previousBalance.current) {
+      console.log("Balance updated:", {
+        previous: previousBalance.current,
+        balance: balance,
+      });
+
+      previousBalance.current = balance;
+    }
+  }, [balance]);
 
   if (!address) {
     return <Missing>an address</Missing>;
@@ -40,7 +51,11 @@ const Connected = () => {
           onBalanceChange={onBalanceChange}
         />
       )}
-      <Tests chainId={chainId!} balance={balance} />
+      <Tests
+        chainId={chainId!}
+        balance={balance}
+        previousBalance={previousBalance.current}
+      />
     </>
   );
 };
