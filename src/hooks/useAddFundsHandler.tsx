@@ -67,8 +67,8 @@ export const useAddFundsWithSwapHandler = ({
         onOrderCreated(data) {
           console.log("Order created successfully", data);
         },
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        onOrderSuccessful(_: void) {
+        onOrderSuccessful(data) {
+          void data;
           setReadyToSwap(true);
         },
         onOrderFailed(data) {
