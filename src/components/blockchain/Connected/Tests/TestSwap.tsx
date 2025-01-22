@@ -1,6 +1,6 @@
 import { useSwapModal, type SwapModalSettings } from "@0xsequence/kit-checkout";
 import { ethers } from "ethers";
-import { tokenAddress } from "./swapTokenAddress";
+import { swapTokenAddress } from "../../../../utils/helpers";
 import { useEffect, useRef } from "react";
 
 const TestSwap = (props: { balance: string }) => {
@@ -25,7 +25,7 @@ const TestSwap = (props: { balance: string }) => {
 
   const onClick = () => {
     const chainId = 137;
-    const currencyAddress = tokenAddress;
+    const currencyAddress = swapTokenAddress;
     const currencyAmount = "2000";
 
     const contractAbiInterface = new ethers.Interface(["function demo()"]); // Optionally, replace with your contract's abi interface

@@ -11,6 +11,15 @@ const TestOnRamp = () => {
       defaultCryptoCurrency: "POL",
       cryptoCurrencyList: "POL",
       networks: "polygon",
+      onOrderCreated(data) {
+        console.log("Order Created", data);
+      },
+      onOrderSuccessful(data) {
+        console.log("Order Successful", data);
+      },
+      onOrderFailed(data) {
+        console.warn("Order Failed", data);
+      },
       onClose: () => console.log("User closed the popup"),
     });
   };
