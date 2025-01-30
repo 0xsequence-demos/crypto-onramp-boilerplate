@@ -2,6 +2,7 @@ import { useSwapModal, type SwapModalSettings } from "@0xsequence/kit-checkout";
 import { ethers } from "ethers";
 import { swapTokenAddress } from "../../../../utils/helpers";
 import { useEffect, useRef } from "react";
+import { Button } from "boilerplate-design-system";
 
 const TestSwap = (props: { balance: string }) => {
   const { balance } = props;
@@ -16,14 +17,14 @@ const TestSwap = (props: { balance: string }) => {
       });
 
       if (previousBalance.current && previousBalance.current !== "0") {
-        onClick();
+        handleSwapAndPay();
       }
 
       previousBalance.current = balance;
     }
   }, [balance]);
 
-  const onClick = () => {
+  const handleSwapAndPay = () => {
     const chainId = 137;
     const currencyAddress = swapTokenAddress;
     const currencyAmount = "2000";
@@ -56,7 +57,16 @@ const TestSwap = (props: { balance: string }) => {
     openSwapModal(swapModalSettings);
   };
 
-  return <button onClick={onClick}>Swap and Pay</button>;
+  return (
+    <Button
+      variant="primary"
+      subvariants={{ padding: "comfortable" }}
+      className="w-full sm:w-auto"
+      onClick={handleSwapAndPay}
+    >
+      Swap and Pay
+    </Button>
+  );
 };
 
 export default TestSwap;

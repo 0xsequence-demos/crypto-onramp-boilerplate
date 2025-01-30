@@ -1,4 +1,4 @@
-import { Box, Text, TokenImage } from "@0xsequence/design-system";
+import { TokenImage } from "@0xsequence/design-system";
 import { ContractInfo, SequenceIndexer } from "@0xsequence/indexer";
 import { allNetworks } from "@0xsequence/network";
 import { useState } from "react";
@@ -87,14 +87,30 @@ const UsdcBalance = (props: {
     enabled:
       !!chain?.id && !!address && !!swapTokenAddress && !!allNetworks.length,
   });
+  if (!contractInfo) {
+    return (
+      <div className="grid grid-cols-5 sm:flex sm:flex-col gap-1">
+        <dt className="text-14 text-grey-100 col-span-2">-- balance</dt>
+        <dd className="flex gap-2 items-center col-span-3">Unknown contract</dd>
+      </div>
+    );
+  }
 
   return (
-    <Box display="flex" gap="2" alignItems="center">
-      <TokenImage src={contractInfo?.logoURI} symbol={contractInfo?.symbol} />
-      <Text variant="large" fontWeight="bold" color="text100">
-        {contractInfo?.symbol} balance: {balance || "loading..."}
-      </Text>
-    </Box>
+    <div className="grid grid-cols-5 sm:flex sm:flex-col gap-1">
+      {" "}
+      <dt className="text-14 text-grey-100 col-span-2 leading-tight">
+        {contractInfo?.name} balance
+      </dt>
+      <dd className="flex gap-2 items-center col-span-3">
+        <TokenImage
+          src={contractInfo?.logoURI}
+          symbol={contractInfo?.symbol}
+          size="sm"
+        />
+        {balance || "loading..."} {contractInfo?.symbol}
+      </dd>
+    </div>
   );
 };
 

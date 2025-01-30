@@ -1,13 +1,13 @@
-import { Text } from "@0xsequence/design-system";
 import { useAccount } from "wagmi";
 import ChainInfo from "./ChainInfo";
-import Disconnect from "./Disconnect";
-import Tests from "./Tests";
-import { Missing } from "../../Missing";
 import { useEffect, useRef, useState } from "react";
+import { Card } from "boilerplate-design-system";
+import TestOnRamp from "./Tests/TestOnRamp";
+import TestOnRampWithSwap from "./Tests/TestOnRampWithSwap";
+import TestSwap from "./Tests/TestSwap";
 
 const Connected = () => {
-  const { address, chain, chainId } = useAccount();
+  const { address, chain } = useAccount();
   const [balance, setBalance] = useState("0");
   const previousBalance = useRef<string | undefined>(undefined);
 
@@ -26,24 +26,8 @@ const Connected = () => {
     }
   }, [balance]);
 
-  if (!address) {
-    return <Missing>an address</Missing>;
-  }
-
-  if (!chain) {
-    return <Missing>a chain</Missing>;
-  }
-
-  if (!chainId) {
-    return <Missing>a chainId</Missing>;
-  }
-
   return (
-    <>
-      <Text variant="large" fontWeight="bold" color="text100">
-        Connected with address: {address}
-      </Text>
-      <Disconnect />
+    <div className="flex flex-col gap-4">
       {chain && (
         <ChainInfo
           chain={chain}
@@ -51,12 +35,15 @@ const Connected = () => {
           onBalanceChange={onBalanceChange}
         />
       )}
-      <Tests
-        chainId={chainId!}
-        balance={balance}
-        previousBalance={previousBalance.current}
-      />
-    </>
+      <Card className="bg-white/10 border border-white/10 backdrop-blur-sm flex-col sm:flex-row flex items-center gap-4 justify-center">
+        <TestOnRampWithSwap
+          balance={balance}
+          previousBalance={previousBalance.current}
+        />
+        <TestOnRamp />
+        <TestSwap balance={balance} />
+      </Card>
+    </div>
   );
 };
 

@@ -1,22 +1,21 @@
-import { Box } from "@0xsequence/design-system";
 import TestOnRamp from "./TestOnRamp";
 import TestSwap from "./TestSwap";
 import TestOnRampWithSwap from "./TestOnRampWithSwap";
+import { Card } from "boilerplate-design-system";
 
 const Tests = (props: {
   chainId: number;
   balance: string;
   previousBalance: string | undefined;
 }) => {
-  const { chainId, balance, previousBalance } = props;
+  const { balance, previousBalance } = props;
 
-  console.log(chainId);
   return (
-    <Box display="flex" flexDirection="column" gap="4">
+    <Card className="bg-white/10 border border-white/10 backdrop-blur-sm">
       <TestOnRampWithSwap balance={balance} previousBalance={previousBalance} />
       <TestOnRamp />
       <TestSwap balance={balance} />
-    </Box>
+    </Card>
   );
 };
 
