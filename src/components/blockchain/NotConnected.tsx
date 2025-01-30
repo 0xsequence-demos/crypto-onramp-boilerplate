@@ -1,19 +1,18 @@
 import { useOpenConnectModal } from "@0xsequence/kit";
+import { Button } from "boilerplate-design-system";
 
-const NotConnected = () => {
+export default function NotConnected() {
   const { setOpenConnectModal } = useOpenConnectModal();
-  const onClickConnect = () => {
-    setOpenConnectModal(true);
-  };
 
   return (
-    <>
-      <p>Not connected</p>
-      <div className="card">
-        <button onClick={onClickConnect}>Connect</button>
-      </div>
-    </>
+    <div className="flex flex-col items-center w-full">
+      <Button
+        variant="primary"
+        subvariants={{ padding: "comfortable" }}
+        onClick={() => setOpenConnectModal(true)}
+      >
+        Connect
+      </Button>
+    </div>
   );
-};
-
-export default NotConnected;
+}

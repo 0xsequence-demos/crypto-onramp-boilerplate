@@ -19,10 +19,12 @@
     "@0xsequence/kit-checkout": "^4.5.8",
     "@0xsequence/network": "^2.2.7",
     "@tanstack/react-query": "^5.61.5",
+    "boilerplate-design-system": "github:0xsequence-demos/boilerplate-design-system#8bd5689",
     "ethers": "6.13.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "viem": "^2.22.6",
+    "tailwindcss": "3",
+    "viem": "^2.22.17",
     "wagmi": "^2.14.7"
   },
   "devDependencies": {

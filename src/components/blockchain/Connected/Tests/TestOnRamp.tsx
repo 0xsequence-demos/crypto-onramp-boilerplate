@@ -1,11 +1,12 @@
 import { useAddFundsModal } from "@0xsequence/kit-checkout";
 import { useAccount } from "wagmi";
+import { Button } from "boilerplate-design-system";
 
 const TestOnRamp = () => {
   const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
   const { address } = useAccount();
 
-  const onClick = () => {
+  const handleAddFunds = () => {
     toggleAddFunds({
       walletAddress: address!,
       defaultCryptoCurrency: "POL",
@@ -24,7 +25,16 @@ const TestOnRamp = () => {
     });
   };
 
-  return <button onClick={onClick}>Add Funds</button>;
+  return (
+    <Button
+      variant="primary"
+      subvariants={{ padding: "comfortable" }}
+      className="w-full sm:w-auto"
+      onClick={handleAddFunds}
+    >
+      Add Funds
+    </Button>
+  );
 };
 
 export default TestOnRamp;
