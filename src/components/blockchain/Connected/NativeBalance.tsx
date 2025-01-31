@@ -1,10 +1,11 @@
-import { Box, Text } from "@0xsequence/design-system";
 import { SequenceIndexer } from "@0xsequence/indexer";
 import { allNetworks } from "@0xsequence/network";
 import { useEffect, useState } from "react";
-import { Address, Chain } from "viem";
+import { formatUnits, Address, Chain } from "viem";
 
-const projectAccessKey = import.meta.env.NEXT_PUBLIC_PROJECT_ACCESS_KEY;
+const projectAccessKey =
+  import.meta.env.NEXT_PUBLIC_PROJECT_ACCESS_KEY ||
+  "AQAAAAAAADVH8R2AGuQhwQ1y8NaEf1T7PJM";
 
 const NativeBalance = (props: { chain: Chain; address: Address }) => {
   const { chain, address } = props;
@@ -35,11 +36,28 @@ const NativeBalance = (props: { chain: Chain; address: Address }) => {
   }, [address, chain]);
 
   return (
-    <Box display="flex">
-      <Text variant="large" fontWeight="bold" color="text100">
-        {chain.nativeCurrency.name} balance: {balance || "loading..."}
-      </Text>
-    </Box>
+    <div className="grid grid-cols-5 sm:flex sm:flex-col gap-1 items-center sm:items-start pb-4 sm:pb-0 border-b sm:border-b-0 sm:border-r border-white/10 sm:mr-4">
+      <dt className="text-14 text-grey-100 col-span-2 leading-tight">
+        Native balance
+      </dt>
+      <dd className="flex gap-1 items-baseline col-span-3">
+        {balance ? (
+          <>
+            <>
+              {formatUnits(
+                BigInt(parseInt(balance)),
+                chain.nativeCurrency.decimals,
+              )}
+            </>{" "}
+            <span className="text-12 font-medium text-grey-200">
+              {chain.nativeCurrency.symbol}
+            </span>
+          </>
+        ) : (
+          "loading..."
+        )}
+      </dd>
+    </div>
   );
 };
 

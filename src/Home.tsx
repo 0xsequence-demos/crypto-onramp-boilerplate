@@ -1,20 +1,20 @@
-import { useAccount } from "wagmi";
+import { useAccount, useDisconnect, useSwitchChain } from "wagmi";
 
-import "./Home.css";
-import Connector from "./components/Connector";
-import MainConnected from "./components/MainConnected";
-import { Footer } from "./components/Footer";
+import Connected from "./components/blockchain/Connected";
+import NotConnected from "./components/blockchain/NotConnected";
+import { SequenceBoilerplate } from "boilerplate-design-system";
 
 const Home = () => {
   const { isConnected } = useAccount();
 
   return (
-    <div>
-      <h1>Sequence Crypto On-ramp Boilerplate</h1>
-      <h2 className="homepage__marginBtNormal">Embedded Wallet</h2>
-      {isConnected ? <MainConnected /> : <Connector />}
-      <Footer />
-    </div>
+    <SequenceBoilerplate
+      githubUrl="https://github.com/0xsequence-demos/crypto-onramp-boilerplate"
+      name="Crypto On-ramp"
+      wagmi={{ useAccount, useDisconnect, useSwitchChain }}
+    >
+      {isConnected ? <Connected /> : <NotConnected />}
+    </SequenceBoilerplate>
   );
 };
 
