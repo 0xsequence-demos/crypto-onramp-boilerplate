@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <SequenceBoilerplate
-      githubUrl="https://github.com/0xsequence-demos/kit-embedded-wallet-react-boilerplate"
+      githubUrl="https://github.com/0xsequence-demos/crypto-onramp-boilerplate"
       name="Crypto On-ramp"
       wagmi={{ useAccount, useDisconnect, useSwitchChain }}
     >
