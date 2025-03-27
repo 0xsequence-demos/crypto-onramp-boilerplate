@@ -1,4 +1,4 @@
-import { useAddFundsModal } from "@0xsequence/kit-checkout";
+import { useAddFundsModal } from "@0xsequence/checkout";
 import { useAccount } from "wagmi";
 import { Button } from "boilerplate-design-system";
 
