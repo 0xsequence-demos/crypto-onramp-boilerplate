@@ -6,7 +6,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/boilerplate-design-system/src/**/*.{js,ts,jsx,tsx}",
+    ...boilerplateConfig.content,
   ],
   presets: [boilerplateConfig],
 };

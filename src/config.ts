@@ -1,4 +1,4 @@
-import { createConfig } from "@0xsequence/kit";
+import { createConfig } from "@0xsequence/connect";
 
 // Get your own keys on sequence.build
 const projectAccessKey = import.meta.env.VITE_PROJECT_ACCESS_KEY;
