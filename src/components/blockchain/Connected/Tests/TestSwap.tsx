@@ -2,7 +2,7 @@ import { useSwapModal, type SwapModalSettings } from "@0xsequence/checkout";
 import { ethers } from "ethers";
 import { swapTokenAddress } from "../../../../utils/helpers";
 import { useEffect, useRef } from "react";
-import { Button } from "boilerplate-design-system";
+import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
 const TestSwap = (props: { balance: string }) => {
   const { balance } = props;

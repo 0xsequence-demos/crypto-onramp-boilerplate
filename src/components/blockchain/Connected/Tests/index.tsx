@@ -1,7 +1,7 @@
 import TestOnRamp from "./TestOnRamp";
 import TestSwap from "./TestSwap";
 import TestOnRampWithSwap from "./TestOnRampWithSwap";
-import { Card } from "boilerplate-design-system";
+import { Card } from "@0xsequence-demos/boilerplate-design-system";
 
 const Tests = (props: {
   chainId: number;

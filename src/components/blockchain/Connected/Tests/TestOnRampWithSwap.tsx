@@ -1,6 +1,6 @@
 import { useAccount } from "wagmi";
 import { useAddFundsWithSwapHandler } from "../../../../hooks/useAddFundsHandler";
-import { Button } from "boilerplate-design-system";
+import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
 const TestOnRampWithSwap = (props: {
   balance: string;

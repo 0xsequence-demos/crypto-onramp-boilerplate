@@ -1,6 +1,6 @@
 import { useAddFundsModal } from "@0xsequence/checkout";
 import { useAccount } from "wagmi";
-import { Button } from "boilerplate-design-system";
+import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
 const TestOnRamp = () => {
   const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();

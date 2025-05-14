@@ -1,7 +1,7 @@
 import { useAccount } from "wagmi";
 import ChainInfo from "./ChainInfo";
 import { useEffect, useRef, useState } from "react";
-import { Card } from "boilerplate-design-system";
+import { Card } from "@0xsequence-demos/boilerplate-design-system";
 import TestOnRamp from "./Tests/TestOnRamp";
 import TestOnRampWithSwap from "./Tests/TestOnRampWithSwap";
 import TestSwap from "./Tests/TestSwap";

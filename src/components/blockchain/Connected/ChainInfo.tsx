@@ -2,7 +2,7 @@ import { Address, Chain } from "viem";
 import ActiveNetwork from "./ActiveNetwork";
 import NativeBalance from "./NativeBalance";
 import UsdcBalance from "./UsdcBalance";
-import { Card } from "boilerplate-design-system";
+import { Card } from "@0xsequence-demos/boilerplate-design-system";
 
 const ChainInfo = (props: {
   chain: Chain;

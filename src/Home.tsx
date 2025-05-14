@@ -2,7 +2,7 @@ import { useAccount, useDisconnect, useSwitchChain } from "wagmi";
 
 import Connected from "./components/blockchain/Connected";
 import NotConnected from "./components/blockchain/NotConnected";
-import { SequenceBoilerplate } from "boilerplate-design-system";
+import { SequenceBoilerplate } from "@0xsequence-demos/boilerplate-design-system";
 
 const Home = () => {
   const { isConnected } = useAccount();
