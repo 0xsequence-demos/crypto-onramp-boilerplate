@@ -1,13 +1,14 @@
 import { useAccount } from "wagmi";
-import ChainInfo from "./ChainInfo";
-import { useEffect, useRef, useState } from "react";
 import { Card } from "@0xsequence-demos/boilerplate-design-system";
-import TestOnRamp from "./Tests/TestOnRamp";
+import { TestOnRamp } from "./Tests/TestOnRamp";
 import TestOnRampWithSwap from "./Tests/TestOnRampWithSwap";
 import TestSwap from "./Tests/TestSwap";
+import { ActiveNetwork } from "./ActiveNetwork";
+import { NativeBalance } from "./NativeBalance";
+import { UsdcBalance } from "./UsdcBalance";
+import { useEffect, useRef, useState } from "react";
 
 const Connected = () => {
-  const { address, chain } = useAccount();
   const [balance, setBalance] = useState("0");
   const previousBalance = useRef<string | undefined>(undefined);
 
@@ -28,13 +29,13 @@ const Connected = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      {chain && (
-        <ChainInfo
-          chain={chain}
-          address={address!}
-          onBalanceChange={onBalanceChange}
-        />
-      )}
+      <Card className="grid sm:grid-cols-3 grid-cols-1 gap-y-4 bg-white/10 border border-white/10 backdrop-blur-sm">
+        <ActiveNetwork />
+
+        <NativeBalance />
+
+        <UsdcBalance onBalanceChange={onBalanceChange} />
+      </Card>
       <Card className="bg-white/10 border border-white/10 backdrop-blur-sm flex-col sm:flex-row flex items-center gap-4 justify-center">
         <TestOnRampWithSwap
           balance={balance}

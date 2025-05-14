@@ -5,7 +5,7 @@ import {
   useSwapModal,
 } from "@0xsequence/checkout";
 import { ethers } from "ethers";
-import { swapTokenAddress } from "../utils/helpers";
+import { contractInfo } from "../utils/helpers";
 
 export const useAddFundsWithSwapHandler = ({
   hasBalanceChanged,
@@ -27,8 +27,8 @@ export const useAddFundsWithSwapHandler = ({
 
   const handleOnSwap = useCallback(() => {
     const chainId = 137;
-    const currencyAddress = swapTokenAddress;
-    const currencyAmount = "2000";
+    const toTokenAddress = contractInfo.address;
+    const toTokenAmount = "2000";
 
     const contractAbiInterface = new ethers.Interface(["function demo()"]); // Replace with the actual ABI if necessary
 
@@ -42,8 +42,9 @@ export const useAddFundsWithSwapHandler = ({
         console.log("swap successful!");
       },
       chainId,
-      currencyAddress,
-      currencyAmount,
+      toTokenAddress,
+      toTokenAmount,
+
       postSwapTransactions: [
         {
           to: "0x37470dac8a0255141745906c972e414b1409b470",

@@ -1,6 +1,6 @@
 import { useSwapModal, type SwapModalSettings } from "@0xsequence/checkout";
 import { ethers } from "ethers";
-import { swapTokenAddress } from "../../../../utils/helpers";
+import { contractInfo } from "../../../../utils/helpers";
 import { useEffect, useRef } from "react";
 import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
@@ -26,8 +26,8 @@ const TestSwap = (props: { balance: string }) => {
 
   const handleSwapAndPay = () => {
     const chainId = 137;
-    const currencyAddress = swapTokenAddress;
-    const currencyAmount = "2000";
+    const toTokenAddress = contractInfo.address;
+    const toTokenAmount = "2000";
 
     const contractAbiInterface = new ethers.Interface(["function demo()"]); // Optionally, replace with your contract's abi interface
 
@@ -41,8 +41,8 @@ const TestSwap = (props: { balance: string }) => {
         console.log("swap successful!");
       },
       chainId,
-      currencyAddress,
-      currencyAmount,
+      toTokenAddress,
+      toTokenAmount,
       postSwapTransactions: [
         // Optionally, replace with the transaction you would like to execute after the swap has taken place.
         {

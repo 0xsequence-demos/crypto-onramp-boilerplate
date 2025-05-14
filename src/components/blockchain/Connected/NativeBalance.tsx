@@ -1,64 +1,39 @@
-import { SequenceIndexer } from "@0xsequence/indexer";
-import { allNetworks } from "@0xsequence/network";
-import { useEffect, useState } from "react";
-import { formatUnits, Address, Chain } from "viem";
+import { TokenImage } from "@0xsequence/design-system";
+import { networkInfo } from "../../../utils/config";
+import { formatPrettyBalance } from "../../../utils/formatPrettyBalance";
+import { useAccount } from "wagmi";
+import { useGetNativeTokenBalance } from "@0xsequence/hooks";
+import { contractInfo } from "../../../utils/helpers";
 
-const projectAccessKey =
-  import.meta.env.NEXT_PUBLIC_PROJECT_ACCESS_KEY ||
-  "AQAAAAAAADVH8R2AGuQhwQ1y8NaEf1T7PJM";
+export function NativeBalance() {
+  const { address } = useAccount();
 
-const NativeBalance = (props: { chain: Chain; address: Address }) => {
-  const { chain, address } = props;
-  const [balance, setBalance] = useState<string | undefined>();
+  const tokenBalance = useGetNativeTokenBalance({
+    chainIds: [contractInfo.chainId],
+    accountAddress: address,
+  });
 
-  useEffect(() => {
-    if (!address || !chain) return;
-
-    const loadNativeNetworkBalance = async (chainId: number) => {
-      const chainName = allNetworks.find(
-        (chainInfo) => chainInfo.chainId === chainId,
-      )?.name;
-      if (!chainName) {
-        setBalance("ERROR");
-        return;
-      }
-      const indexer = new SequenceIndexer(
-        `https://${chainName}-indexer.sequence.app`,
-        projectAccessKey,
-      );
-      const tokenBalances = await indexer.getEtherBalance({
-        accountAddress: address,
-      });
-      if (tokenBalances) setBalance(tokenBalances?.balance?.balanceWei);
-    };
-
-    loadNativeNetworkBalance(chain.id).then(() => console.log("Done"));
-  }, [address, chain]);
+  const balance = tokenBalance?.data?.[0]?.balance || "0";
+  const symbol = networkInfo?.nativeToken.symbol;
+  const decimals = networkInfo?.nativeToken.decimals;
+  const imageSrc = networkInfo?.logoURI;
 
   return (
     <div className="grid grid-cols-5 sm:flex sm:flex-col gap-1 items-center sm:items-start pb-4 sm:pb-0 border-b sm:border-b-0 sm:border-r border-white/10 sm:mr-4">
       <dt className="text-14 text-grey-100 col-span-2 leading-tight">
         Native balance
       </dt>
-      <dd className="flex gap-1 items-baseline col-span-3">
-        {balance ? (
-          <>
-            <>
-              {formatUnits(
-                BigInt(parseInt(balance)),
-                chain.nativeCurrency.decimals,
-              )}
-            </>{" "}
-            <span className="text-12 font-medium text-grey-200">
-              {chain.nativeCurrency.symbol}
-            </span>
-          </>
-        ) : (
-          "loading..."
-        )}
+      <dd className="flex gap-2 items-center col-span-3">
+        {imageSrc ? (
+          <span className="size-5">
+            <TokenImage src={imageSrc} symbol={symbol} size="sm" />
+          </span>
+        ) : null}
+        <span className="flex items-baseline gap-[0.33ex]">
+          {balance ? formatPrettyBalance(balance, decimals) : <>Loading</>}
+          <span className="text-12 font-medium text-grey-200">{symbol}</span>
+        </span>
       </dd>
     </div>
   );
-};
-
-export default NativeBalance;
+}
