@@ -1,17 +1,18 @@
 import { useAddFundsModal } from "@0xsequence/checkout";
 import { useAccount } from "wagmi";
-import { Button } from "boilerplate-design-system";
+import { Button } from "@0xsequence-demos/boilerplate-design-system";
+import { networkInfo } from "../../../../utils/config";
 
-const TestOnRamp = () => {
+export function TestOnRamp() {
   const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
   const { address } = useAccount();
 
   const handleAddFunds = () => {
     toggleAddFunds({
       walletAddress: address!,
-      defaultCryptoCurrency: "POL",
-      cryptoCurrencyList: "POL",
-      networks: "polygon",
+      defaultCryptoCurrency: networkInfo?.nativeToken.symbol,
+      cryptoCurrencyList: networkInfo?.nativeToken.symbol,
+      networks: networkInfo?.name,
       onOrderCreated(data) {
         console.log("Order Created", data);
       },
@@ -35,6 +36,4 @@ const TestOnRamp = () => {
       Add Funds
     </Button>
   );
-};
-
-export default TestOnRamp;
+}
