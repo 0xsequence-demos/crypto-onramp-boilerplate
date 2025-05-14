@@ -4,7 +4,7 @@ import { contractInfo } from "../../../../utils/helpers";
 import { useEffect, useRef } from "react";
 import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
-const TestSwap = (props: { balance: string }) => {
+export function TestSwap(props: { balance: string }) {
   const { balance } = props;
   const previousBalance = useRef<string | undefined>(undefined);
   const { openSwapModal } = useSwapModal();
@@ -67,6 +67,4 @@ const TestSwap = (props: { balance: string }) => {
       Swap and Pay
     </Button>
   );
-};
-
-export default TestSwap;
+}

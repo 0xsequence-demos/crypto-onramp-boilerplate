@@ -2,10 +2,10 @@ import { useAccount } from "wagmi";
 import { useAddFundsWithSwapHandler } from "../../../../hooks/useAddFundsHandler";
 import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
-const TestOnRampWithSwap = (props: {
+export function TestOnRampWithSwap(props: {
   balance: string;
   previousBalance: string | undefined;
-}) => {
+}) {
   const { balance, previousBalance } = props;
   const { address } = useAccount();
   const hasBalanceChanged =
@@ -25,6 +25,4 @@ const TestOnRampWithSwap = (props: {
       Add Funds with Swap
     </Button>
   );
-};
-
-export default TestOnRampWithSwap;
+}

@@ -1,8 +1,7 @@
-import { useAccount } from "wagmi";
 import { Card } from "@0xsequence-demos/boilerplate-design-system";
 import { TestOnRamp } from "./Tests/TestOnRamp";
-import TestOnRampWithSwap from "./Tests/TestOnRampWithSwap";
-import TestSwap from "./Tests/TestSwap";
+import { TestOnRampWithSwap } from "./Tests/TestOnRampWithSwap";
+import { TestSwap } from "./Tests/TestSwap";
 import { ActiveNetwork } from "./ActiveNetwork";
 import { NativeBalance } from "./NativeBalance";
 import { UsdcBalance } from "./UsdcBalance";
